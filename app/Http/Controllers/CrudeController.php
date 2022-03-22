@@ -37,7 +37,6 @@ class CrudeController extends Controller
         $crud->email = $request->email;
         $crud->save();
         Session::flash('msg', 'Data Successfully Added');
-
         return redirect('/');
     }
     public function editData($id = null)
@@ -64,7 +63,14 @@ class CrudeController extends Controller
         $crud->email = $request->email;
         $crud->save();
         Session::flash('msg', 'Data Successfully Updated');
+        return redirect('/');
+    }
 
+    public function deleteData($id = null)
+    {
+        $deleteData = cruds::find($id);
+        $deleteData->delete();
+        Session::flash('msg', 'Data Successfully Deleted');
         return redirect('/');
     }
 }
