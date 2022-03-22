@@ -40,4 +40,31 @@ class CrudeController extends Controller
 
         return redirect('/');
     }
+    public function editData($id = null)
+    {
+        $editData = cruds::find($id);
+        return view('edit_data', compact('editData'));
+    }
+
+    public function updateData(Request $request, $id)
+    {
+        $rules = [
+            'name' => 'required|max:20',
+            'email' => 'required|email'
+        ];
+        $cm = [
+            'name.required' => 'Enter Your Name',
+            'name.max' => 'Your name must be less 20 characters',
+            'email.required' => 'Enter Your Email',
+            'email.email' => 'Your email must be a valid email'
+        ];
+        $this->validate($request, $rules, $cm);
+        $crud = cruds::find($id);
+        $crud->name = $request->name;
+        $crud->email = $request->email;
+        $crud->save();
+        Session::flash('msg', 'Data Successfully Updated');
+
+        return redirect('/');
+    }
 }

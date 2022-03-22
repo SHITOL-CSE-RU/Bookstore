@@ -34,7 +34,7 @@
                     <td>{{$data->name}}</td>
                     <td>{{$data->email}}</td>
                     <td>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="{{url('/edit-data/'.$data->id)}}" class="btn btn-success">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>
 
