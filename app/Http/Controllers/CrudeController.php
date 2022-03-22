@@ -10,7 +10,9 @@ class CrudeController extends Controller
 {
     public function showData()
     {
-        $showData = cruds::all();
+        //$showData = cruds::all();
+        //$showData = cruds::paginate(5);
+        $showData = cruds::simplePaginate(5);
         return view('show_data', compact('showData'));
     }
     public function addData()
@@ -36,6 +38,6 @@ class CrudeController extends Controller
         $crud->save();
         Session::flash('msg', 'Data Successfully Added');
 
-        return redirect()->back();
+        return redirect('/');
     }
 }
