@@ -14,4 +14,4 @@ https://github.com/SHITOL-CSE-RU/Laravel-Basic-Crud-Application.git
       ```
       php artisan serve
       ```
-4. Visit **"http://127.0.0.1:8000/"** to view this simple Laravel Crude Application.
+4. Visit **"http://127.0.0.1:8000/"** to view this simple Laravel Crud Application.
